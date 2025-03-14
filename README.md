@@ -3,12 +3,7 @@ Im Rahmen des Moduls "Discrete-event Simulation and Organization Methods" ist di
 
 ## Software Description
 
-The **SESMG** is an energy system model generator with the focus on the optimization of urban energy systems, which can, however, also be used for the modeling of other types of energy systems. The **SESMG** is based on the 'Open Energy Modelling Framework' (oemof) and comes, compared to other modeling tools with advantages regarding user-friendliness, as
- 
- * the model definition is based on spreadsheets, therefore no programming skills are required for the entire modeling process,
- * urban energy system models with any size can automatically conceptualized,
- * visualization of complex results are automatically created in the form of system graphs, Pareto-fronts, energy amounts, capacity diagrams, and many more, as well as
- * a set of standard (but still customizable) parameters are given, including detailed descriptions and references.
+The **LBROSR** is a software for optimizing the sequence of set-up processes for one machine and constraint worker-resources. The machine can produce three types of Lego-Bricks and each Brick or Product has its own unique set-up process.
 
 #### Contact information 
 Julius Berghoff
