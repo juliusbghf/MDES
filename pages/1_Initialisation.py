@@ -136,7 +136,7 @@ order_df = pd.DataFrame([
     {"Product A": 1, "Product B": 2, "Product C": 3}
 ])
 st.header("Select the order of the products for the machine:")
-st.markdown("* After visualising the data you can decide in which order the products should be produced. By double-clicking the number a drop-down menu will open, in which you can use a number for each product. Number 1 will be produced first, number 2 second and number 3 third. Please choose each number only once, else the optimization will not work! ")
+st.markdown("* After visualising the data you can decide in which order the products should be produced. By **double-clicking** the number a drop-down menu will open, in which you can use a number for each product. Number 1 will be produced first, number 2 second and number 3 third. **Please choose each number only once, else the optimization will not work!** ")
 st.session_state.order_df = st.data_editor(order_df, 
                             use_container_width=True, 
                             hide_index = True,
@@ -155,7 +155,7 @@ def handle_state_optimization_started() -> None:
     st.session_state["submit_clicked"] = True
 
 st.header("Submit data and start optimization")
-st.markdown("* After choosing the production-order of the processes, you can submit the data and start the optimization. By clicking *Submit Data* the optimization will start and after it is finished, you will automatically be redirected to the results page.")
+st.markdown("* After choosing the production-order of the processes, you can submit the data and start the optimization. By clicking **Submit Data** the optimization will start and after it is finished, you will automatically be redirected to the results page.")
 # submit button for starting the optimization
 with st.form(key="submit_data"):
     st.write("Press the button to submit the created data and start the optimization.")
