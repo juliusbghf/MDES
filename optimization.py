@@ -182,8 +182,8 @@ def start_optimization(product_1: pd.DataFrame, product_2: pd.DataFrame, product
                 label = process_data[product][process_index]['Label']
                 gantt_data.append({
                     'Task': pr,
-                    'Start': (base_date + pd.Timedelta(minutes=start_time)).strftime('%H:%M'),
-                    'Finish': (base_date + pd.Timedelta(minutes=end_time)).strftime('%H:%M'),
+                    'Start': (base_date + pd.Timedelta(minutes=start_time)),
+                    'Finish': (base_date + pd.Timedelta(minutes=end_time)),
                     'Resource': w,
                     'Product': product,
                     'Label': label
