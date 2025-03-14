@@ -155,6 +155,7 @@ def handle_state_optimization_started() -> None:
     st.session_state["submit_clicked"] = True
 
 st.header("Submit data and start optimization")
+st.markdown("* After choosing the production-order of the processes, you can submit the data and start the optimization. By clicking *Submit Data* the optimization will start and after it is finished, you will automatically be redirected to the results page.")
 # submit button for starting the optimization
 with st.form(key="submit_data"):
     st.write("Press the button to submit the created data and start the optimization.")
@@ -195,7 +196,7 @@ if st.session_state["optimization_started"] == True:
 
     # create spinner info text
     st.info("Optimization started. Please wait until the optimization is finished.", icon = "ℹ️")
-    
+    st.spinner(text="Optimization running...", show_time=False)
     # start the optimization
     st.session_state["fig"], st.session_state["shift_plan"], st.session_state["worker_costs_df"] = start_optimization(product_1, product_2, product_3)
 
