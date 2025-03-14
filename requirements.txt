@@ -2,7 +2,6 @@ matplotlib
 pandas
 numpy
 pyomo
-streamlit
 graphviz
 os
 pathlib
