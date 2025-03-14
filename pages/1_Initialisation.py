@@ -221,4 +221,4 @@ if st.session_state["optimization_started"] == True:
     st.session_state["fig"], st.session_state["shift_plan"], st.session_state["worker_costs_df"] = start_optimization(product_1, product_2, product_3)
 
     # change the page to the results page
-    nav_page("Ergebnisse", timeout_secs=2)
+    nav_page("Results", timeout_secs=2)
