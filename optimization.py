@@ -230,9 +230,16 @@ def start_optimization(product_1: pd.DataFrame, product_2: pd.DataFrame, product
     # Schichtplan als Tabelle anzeigen
     shift_plan_df = pd.DataFrame(shift_plan)
 
-    # Balkendiagramm der Gesamtkosten pro Arbeiter
-    worker_costs_chart = px.bar(worker_costs_df, x='Worker', y='Total Cost', title='Total Costs per Worker')
-    worker_costs_chart.update_layout(yaxis=dict(range=[0, worker_costs_df['Total Cost'].max() * 1.1]))
+    # Kosten pro Worker als Tabelle und Diagramm anzeigen
+    worker_costs_df = pd.DataFrame(list(worker_costs.items()), columns=['Worker', 'Total Cost'])
 
-    return fig, shift_plan_df, worker_costs_df
+    # Matplotlib Balkendiagramm erstellen
+    fig2, ax2 = plt.subplots()
+    worker_costs_df['Total Cost'] = worker_costs_df['Total Cost'].astype(float)
+    ax2.bar(worker_costs_df['Worker'], worker_costs_df['Total Cost'])
+    ax2.set_xlabel('Worker')
+    ax2.set_ylabel('Total Cost (€)')
+    ax2.set_title('Total Costs per Worker')
+
+    return fig, shift_plan_df, worker_costs_df, fig2
     
