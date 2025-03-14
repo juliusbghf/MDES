@@ -234,7 +234,7 @@ def start_optimization(product_1: pd.DataFrame, product_2: pd.DataFrame, product
     worker_costs_df = pd.DataFrame(list(worker_costs.items()), columns=['Worker', 'Total Cost'])
 
     # Matplotlib Balkendiagramm erstellen
-    fig2, ax2 = plt.subplots()
+    fig2, ax2 = plt.subplots(figsize=(5, 3))
     worker_costs_df['Total Cost'] = worker_costs_df['Total Cost'].astype(float)
     ax2.bar(worker_costs_df['Worker'], worker_costs_df['Total Cost'])
     ax2.set_xlabel('Worker')
