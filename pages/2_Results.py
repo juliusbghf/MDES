@@ -45,5 +45,5 @@ if "worker_costs_df" in st.session_state:
     st.dataframe(worker_costs_df, use_container_width=True)
 
     # Balkendiagramm der Gesamtkosten pro Arbeiter mit Matplotlib
-    if "costs_fig" in st.session_state:
-        st.pyplot(st.session_state["costs_fig"])
+    if "fig2" in st.session_state:
+        st.pyplot(st.session_state["fig2"])
