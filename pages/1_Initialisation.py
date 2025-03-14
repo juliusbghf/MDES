@@ -112,7 +112,7 @@ if st.session_state.visualisation == "Product A":
     st.dataframe(st.session_state.df_visualisation, hide_index = True)
     graph = create_graph(product_A)
     st.session_state.product_graph = graph
-    st.subheader("Grafische Darstellung der Prozesse für " + st.session_state.visualisation)
+    st.subheader("Graphical representation of the set-up processes for " + st.session_state.visualisation)
     st.graphviz_chart(st.session_state.product_graph, use_container_width=True,)
 
 elif st.session_state.visualisation == "Product B":
@@ -120,7 +120,7 @@ elif st.session_state.visualisation == "Product B":
     st.dataframe(st.session_state.df_visualisation, hide_index = True)
     graph = create_graph(product_B)
     st.session_state.product_graph = graph
-    st.subheader("Tabular representation of the set-up processes for " + st.session_state.visualisation)
+    st.subheader("Graphical representation of the set-up processes for " + st.session_state.visualisation)
     st.graphviz_chart(st.session_state.product_graph, use_container_width=True)
 
 elif st.session_state.visualisation == "Product C":
@@ -128,36 +128,15 @@ elif st.session_state.visualisation == "Product C":
     st.dataframe(st.session_state.df_visualisation, hide_index = True)
     graph = create_graph(product_C)
     st.session_state.product_graph = graph
-    st.subheader("Grafische Darstellung der Prozesse für " + st.session_state.visualisation)
+    st.subheader("Graphical representation of the set-up processes for " + st.session_state.visualisation)
     st.graphviz_chart(st.session_state.product_graph, use_container_width=True)
-
-if "machine_number_input" not in st.session_state:
-    st.session_state.machine_number_input = 1
-
-# create a dataframe for the number of machines and products for each machine
-if "machine_product_df" not in st.session_state:
-    data = {
-        "Machine No.": [1],
-        "Product A": ["Yes"],
-        "Product B": ["No"],
-        "Product C": ["No"]
-    }
-    st.session_state.machine_product_df = pd.DataFrame(data)
-
-def handle_machine_number():
-    number = st.session_state.machine_number_input
-    current_rows = len(st.session_state.machine_product_df)
-    if number > current_rows:
-        for i in range(current_rows + 1, number + 1):
-            new_row = pd.DataFrame.from_dict({"Machine No.": [i], "Product A": ["No"], "Product B": ["No"], "Product C": ["No"]})
-            st.session_state.machine_product_df = pd.concat([st.session_state.machine_product_df, new_row], ignore_index=True)
 
 # select the order of the products for the machine
 order_df = pd.DataFrame([
     {"Product A": 1, "Product B": 2, "Product C": 3}
 ])
 st.header("Select the order of the products for the machine:")
-st.write("Here you can select the order of the products the machine. The order of the products is important for the optimization. Please do not give two products the same number.")
+st.markdown("* After visualising the data you can decide in which order the products should be produced. By double-clicking the number a drop-down menu will open, in which you can use a number for each product. Number 1 will be produced first, number 2 second and number 3 third. Please choose each number only once, else the optimization will not work! ")
 st.session_state.order_df = st.data_editor(order_df, 
                             use_container_width=True, 
                             hide_index = True,
