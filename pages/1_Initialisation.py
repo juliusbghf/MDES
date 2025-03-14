@@ -198,7 +198,7 @@ if st.session_state["optimization_started"] == True:
     st.info("Optimization started. Please wait until the optimization is finished.", icon = "ℹ️")
     st.spinner(text="Optimization running...", show_time=False)
     # start the optimization
-    st.session_state["fig"], st.session_state["shift_plan"], st.session_state["worker_costs_df"] = start_optimization(product_1, product_2, product_3)
+    st.session_state["fig"], st.session_state["shift_plan"], st.session_state["worker_costs_df"], st.session_state["fig2"] = start_optimization(product_1, product_2, product_3)
 
     # change the page to the results page
     nav_page("Results", timeout_secs=2)
