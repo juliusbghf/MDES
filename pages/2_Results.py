@@ -44,8 +44,6 @@ if "worker_costs_df" in st.session_state:
     worker_costs_df = st.session_state["worker_costs_df"]
     st.dataframe(worker_costs_df, use_container_width=True)
 
-    # Balkendiagramm der Gesamtkosten pro Arbeiter
-    worker_costs_df['Total Cost'] = worker_costs_df['Total Cost'].astype(float)
-    worker_costs_chart = px.bar(worker_costs_df, x='Worker', y='Total Cost', title='Total Costs per Worker')
-    worker_costs_chart.update_layout(yaxis=dict(range=[0, worker_costs_df['Total Cost'].max() * 1.1]))
-    st.plotly_chart(worker_costs_chart)
+    # Balkendiagramm der Gesamtkosten pro Arbeiter mit Matplotlib
+    if "costs_fig" in st.session_state:
+        st.pyplot(st.session_state["costs_fig"])
