@@ -92,11 +92,11 @@ product_C = pd.DataFrame([
 ])
 
 
-st.markdown("# Initialisierung")
-st.markdown("On this page, you can initialize the data. There are two products with different sequences of setup-processes.  "
-        "In the beginning, you can decide if you want to use the default data or create your sequences. It is also possible to edit the default setup-processes.    "
-        "The parameters that can be edited for each step are: Label, Predecessor, Processing Time, Required Number of Workers, Required Skill of Workers, Processing costs, External/internal process.")
-
+st.markdown("# Initialisation")
+st.markdown("On this page, you can visualize and initialize the data. There are three products with different sequences of setup-processes that are fixed. At first you have the option to visualize the set-up processes of each product. For each product there is a tabular and graphical representation.")
+st.markdown("In total the workforce for fulfilling the processes consists of two workers, a machine operator and a setter, that can either fulfill these tasks alone or together. For each of these options there is a processing time and a related cost.")
+st.markdown("The processes can either be internal, meaning from 'inside' of the machine, or external, meaning from 'outside' of the machine. Also included is a production process.")
+st.markdown("The graphical visualisation shows the sequence of processes with the predecessor relationships.")
 # check if the session state for the visualisation is set
 if "visualisation" not in st.session_state:
     st.session_state.visualisation = "Product A"
@@ -105,7 +105,7 @@ if "visualisation" not in st.session_state:
 st.header("Set-up processes of the products")
 # st.session_state.visualisation = st.select_slider("Select the product to visualize", options=["Product A", "Product B", "Product C"], key = "product_slider")
 st.session_state.visualisation = st.radio("Select the product to visualize", ["Product A", "Product B", "Product C"], captions=["Roter 4x4 Stein", "Blauer 2x1 Stein", "Grüner 6x2 Stein"])
-st.subheader("Tabulare Darstellung der Prozesse für " + st.session_state.visualisation)
+st.subheader("Tabular representation of the set-up processes for " + st.session_state.visualisation)
 # display the dataframe and the graph of the selected product
 if st.session_state.visualisation == "Product A":
     st.session_state.df_visualisation = product_A
@@ -120,7 +120,7 @@ elif st.session_state.visualisation == "Product B":
     st.dataframe(st.session_state.df_visualisation, hide_index = True)
     graph = create_graph(product_B)
     st.session_state.product_graph = graph
-    st.subheader("Grafische Darstellung der Prozesse für " + st.session_state.visualisation)
+    st.subheader("Tabular representation of the set-up processes for " + st.session_state.visualisation)
     st.graphviz_chart(st.session_state.product_graph, use_container_width=True)
 
 elif st.session_state.visualisation == "Product C":
