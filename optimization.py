@@ -159,7 +159,7 @@ def start_optimization(product_1: pd.DataFrame, product_2: pd.DataFrame, product
     TransformationFactory('gdp.bigm').apply_to(model)
 
     # Solver
-    os.environ['NEOS_EMAIL'] = 'julius.berghoff@stud.th-owl.de'
+    os.environ['NEOS_EMAIL'] = st.secrets["NEOS_EMAIL"]
     solver = SolverManagerFactory('neos')
     results = solver.solve(model, opt = 'cplex', tee=True)
 
